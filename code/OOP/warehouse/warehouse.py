@@ -9,11 +9,16 @@ class Warehouse:
         for product in self.products:
             print(product)
 
+        print('\n')
+
     def add_product(self):
         product_name = input('Enter product name:')
 
         if product_name not in self.products:
             self.products.append(product_name)
+            print(f'Dodano produkt {product_name}\n')
+        else:
+            print('Produkt już istnieje\n')
 
     def remove_product(self):
         product_name = input('Enter product name:')
@@ -25,9 +30,21 @@ class Warehouse:
             print('Product not found in warehouse')
 
 
-warehouse = Warehouse(['Jabłko'])
-warehouse.add_product()
+warehouse = Warehouse()
 
-warehouse.print_available_products()
+while True:
+    print('Aby dodać produkt do magazyzynu, wciśnij 1\n'
+          'Aby usunąć produkt z magazynu wciśnij 2 \n'
+          'Aby wyświetlić wszystkie produkty wciśnij 3\n'
+          'Aby wyjść wciśnij Q \n\n')
 
-warehouse.remove_product()
+    choice = input()
+    if choice.lower() == 'q':
+        exit('koniec')
+    elif choice == '1':
+        warehouse.add_product()
+        continue
+    elif choice == '2':
+        warehouse.remove_product()
+    elif choice == '3':
+        warehouse.print_available_products()
