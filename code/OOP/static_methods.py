@@ -10,6 +10,7 @@ class Student:
     def students_count():
         print(len(Student.students_list))
 
+
 student_1 = Student('Marian', 15)
 student_2 = Student('Michał', 18)
 
